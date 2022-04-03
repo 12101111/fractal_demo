@@ -1,31 +1,10 @@
-# eframe template
+# Fractal demo
 
-[![dependency status](https://deps.rs/repo/github/emilk/eframe_template/status.svg)](https://deps.rs/repo/github/emilk/eframe_template)
-[![Build Status](https://github.com/emilk/eframe_template/workflows/CI/badge.svg)](https://github.com/emilk/eframe_template/actions?workflow=CI)
-
-This is a template repo for [eframe](https://github.com/emilk/egui/tree/master/eframe), a framework for writing apps using [egui](https://github.com/emilk/egui/).
-
-The goal is for this to be the simplest way to get started writing a GUI app in Rust.
-
-You can compile your app natively or for the web, and share it using Github Pages.
+This project demonstrate some fractals
 
 ## Getting started
 
-Start by clicking "Use this template" at https://github.com/emilk/eframe_template/ or follow [these instructions](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template).
-
-Change the name of the crate: Chose a good name for your project, and change the name to it in:
-* `Cargo.toml`
-    * Update the `name` and `authors`
-* `main.rs`
-    * Change the `let app =…` line from `eframe_template::TemplateApp` to `your_crate::TemplateApp`
-* `docs/index.html`
-    * Change the `<title>`
-    * Change the `<script src=…` line from `eframe_template.js` to `your_crate.js`
-    * Change the `wasm_bindgen(…` line from `eframe_template_bg.wasm` to `your_crate_bg.wasm` (note the `_bg`!)
-* `docs/sw.js`
-    * Change the `'./eframe_template.js'` to `./your_crate.js` (in `filesToCache` array)
-    * Change the `'./eframe_template_bg.wasm'` to `./your_crate_bg.wasm` (in `filesToCache` array)
-* Remove the web build of the old name: `rm docs/eframe_template*`
+Insert rust getting started here!
 
 ### Learning about egui
 
