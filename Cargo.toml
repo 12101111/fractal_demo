@@ -7,6 +7,10 @@ rust-version = "1.56"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[[bin]]
+name = "fractal_viewer"
+path = "src/main.rs"
+
 [lib]
 crate-type = ["cdylib", "rlib"]
 
@@ -14,12 +18,15 @@ crate-type = ["cdylib", "rlib"]
 opt-level = 3 # fast and small wasm
 
 [features]
-default = ["persistence","dark-light"]
-persistence = ["eframe/persistence", "serde"] # Enable if you want to persist app state on shutdown
+default = ["persistence", "dark-light"]
+persistence = [
+    "eframe/persistence",
+    "serde",
+] # Enable if you want to persist app state on shutdown
 dark-light = ["eframe/dark-light"]
 
 [dependencies]
-eframe = "0.17.0" # Gives us egui, epi and web+native backends
+eframe = "0.17.0"                                                 # Gives us egui, epi and web+native backends
 egui_glow = "0.17.0"
 serde = { version = "1", features = ["derive"], optional = true }
 glow = "0.11"

@@ -17,9 +17,9 @@ impl FractalApp {
         Self {
             selected: Default::default(),
             views: vec![
-                Box::new(FractalClock::default()),
                 Box::new(KochSnowFlake::<false>::new(cc)),
                 Box::new(KochSnowFlake::<true>::new(cc)),
+                Box::new(FractalClock::default()),
             ],
         }
     }

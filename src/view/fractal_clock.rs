@@ -243,7 +243,8 @@ impl FractalClock {
                     ((m / 60) as u8, (m % 60) as u8, 0)
             } else if #[cfg(target_os = "windows")] {
                 let offset = time::UtcOffset::current_local_offset().unwrap();
-                offset.as_hms()
+                let (h, m, s) = offset.as_hms();
+                (h as u8, m as u8, s as u8)
             } else if #[cfg(target_vendor = "apple")] {
                 // https://developer.apple.com/documentation/foundation/nstimezone?changes=latest_minor&language=objc
                 use objc::{class, msg_send, sel, sel_impl, runtime::Object};

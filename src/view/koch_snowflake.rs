@@ -95,15 +95,11 @@ impl<const ANTI: bool> KochSnowFlake<ANTI> {
                     .speed(1.0)
                     .clamp_range(1..=MAX_DEPTH),
             );
-            if ui.button("+").clicked() {
-                if self.depth < MAX_DEPTH {
-                    self.depth += 1;
-                }
+            if ui.button("+").clicked() && self.depth < MAX_DEPTH {
+                self.depth += 1;
             }
-            if ui.button("-").clicked() {
-                if self.depth > 1 {
-                    self.depth -= 1;
-                }
+            if ui.button("-").clicked() && self.depth > 1 {
+                self.depth -= 1;
             }
         });
         if ui.button("reset").clicked() {
@@ -121,7 +117,7 @@ struct Context<const ANTI: bool> {
     depth: u32,
 }
 
-const VERTEX_SHADER: &'static str = r#"
+const VERTEX_SHADER: &str = r#"
 layout (location = 0) in vec2 in_pos;
 uniform float uni_ratio;
 void main() {
@@ -130,7 +126,7 @@ void main() {
 }
 "#;
 
-const FRAGMENT_SHADER: &'static str = r#"
+const FRAGMENT_SHADER: &str = r#"
 precision mediump float;
 out vec4 out_color;
 void main() {
@@ -143,8 +139,10 @@ impl<const ANTI: bool> Context<ANTI> {
         use glow::HasContext as _;
 
         let shader_version = if cfg!(target_arch = "wasm32") {
+            // in/out
             "#version 300 es"
         } else {
+            // location
             "#version 330"
         };
 
@@ -213,6 +211,7 @@ impl<const ANTI: bool> Context<ANTI> {
                 //        m
                 let l = pos2((e.x + 2.0 * s.x) / 3.0, (e.y + 2.0 * s.y) / 3.0);
                 let r = pos2((s.x + 2.0 * e.x) / 3.0, (s.y + 2.0 * e.y) / 3.0);
+                #[allow(clippy::collapsible_else_if)]
                 let m = if ANTI {
                     if s.y == e.y {
                         pos2((s.x + e.x) / 2.0, s.y - (s.x - e.x) / (2.0 * 3.0f32.sqrt()))
