@@ -10,20 +10,37 @@ rust-version = "1.56"
 [lib]
 crate-type = ["cdylib", "rlib"]
 
-[dependencies]
-eframe = "0.17.0" # Gives us egui, epi and web+native backends
-serde = { version = "1", features = ["derive"], optional = true }
+[profile.release]
+opt-level = 3 # fast and small wasm
 
 [features]
-default = ["persistence"]
+default = ["persistence","dark-light"]
 persistence = ["eframe/persistence", "serde"] # Enable if you want to persist app state on shutdown
+dark-light = ["eframe/dark-light"]
 
-[profile.release]
-opt-level = 2 # fast and small wasm
+[dependencies]
+eframe = "0.17.0" # Gives us egui, epi and web+native backends
+egui_glow = "0.17.0"
+serde = { version = "1", features = ["derive"], optional = true }
+glow = "0.11"
+parking_lot = "0.12"
+once_cell = "1.10"
+derivative = "2.2"
+cfg-if = "1"
+tracing = "0.1"
 
-[patch.crates-io]
-eframe = { git = "https://github.com/emilk/egui", rev = "95efbbc03e40602abdb4a94bc178ef1c6cb3e6a2" }
+[target.'cfg(target_vendor = "apple")'.dependencies]
+objc = "0.2"
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+time = { version = "0.3", features = ["local-offset"] }
+tracing-subscriber = "0.3"
 
 [target.'cfg(target_arch = "wasm32")'.dependencies]
 console_error_panic_hook = "0.1.6"
 tracing-wasm = "0.2"
+js-sys = "0.3"
+
+[patch.crates-io]
+eframe = { git = "https://github.com/emilk/egui", rev = "95efbbc03e40602abdb4a94bc178ef1c6cb3e6a2" }
+egui_glow = { git = "https://github.com/emilk/egui", rev = "95efbbc03e40602abdb4a94bc178ef1c6cb3e6a2" }
