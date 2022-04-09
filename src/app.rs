@@ -17,8 +17,11 @@ impl FractalApp {
         Self {
             selected: Default::default(),
             views: vec![
+                Box::new(MandelbrotShader::new(cc)),
+                Box::new(JuliaSetShader::new(cc)),
                 Box::new(KochSnowFlake::<false>::new(cc)),
                 Box::new(KochSnowFlake::<true>::new(cc)),
+                Box::new(SierpinskiTriangle::new(cc)),
                 Box::new(FractalClock::default()),
             ],
         }
