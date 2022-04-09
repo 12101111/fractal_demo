@@ -7,10 +7,10 @@
 
 <head>
     <title>Fractal demo</title>
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="./manifest.json">
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#404040">
-    <link rel="apple-touch-icon" href="/icon_ios_touch_192.png">
+    <link rel="apple-touch-icon" href="./icon_ios_touch_192.png">
 
     <style>
         html {
@@ -161,7 +161,7 @@
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/sw.js');
+                navigator.serviceWorker.register('./sw.js');
             });
         }
 

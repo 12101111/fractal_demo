@@ -1,16 +1,10 @@
-# Fractal demo
+# [Fractal demo](https://12101111.github.io/fractal_demo/)
 
-This project demonstrate some fractals
+This project demonstrate some fractals. View it online by click the link above!
 
 ## Getting started
 
-Insert rust getting started here!
-
-### Learning about egui
-
-`src/app.rs` contains a simple example app. This is just to give some inspiration - most of it can be removed if you like.
-
-The official egui docs are at <https://docs.rs/egui>. If you prefer watching a video introduction, check out <https://www.youtube.com/watch?v=NtUkr_z7l84>. For inspiration, check out the [the egui web demo](https://emilk.github.io/egui/index.html) and follow the links in it to its source code.
+This project use Rust programing language. Install Rust compiler from [rust-lang.org](https://www.rust-lang.org/learn/get-started).
 
 ### Testing locally
 
@@ -51,11 +45,3 @@ The finished web app is found in the `docs/` folder (this is so that you can eas
 * `index.html`: A few lines of HTML, CSS and JS that loads your app. **You need to edit this** (once) to replace `eframe_template` with the name of your crate!
 * `your_crate_bg.wasm`: What the Rust code compiles to.
 * `your_crate.js`: Auto-generated binding between Rust and JS.
-
-You can test the template app at <https://emilk.github.io/eframe_template/>.
-
-## Updating egui
-
-As of 2022, egui is in active development with frequent releases with breaking changes. [eframe_template](https://github.com/emilk/eframe_template/) will be updated in lock-step to always use the latest version of egui.
-
-When updating `egui` and `eframe` it is recommended you do so one version at the time, and read about the changes in [the egui changelog](https://github.com/emilk/egui/blob/master/CHANGELOG.md) and [eframe changelog](https://github.com/emilk/egui/blob/master/eframe/CHANGELOG.md).

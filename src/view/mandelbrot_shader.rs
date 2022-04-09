@@ -172,7 +172,7 @@ void main() {
     } else {
         float c = r.z / MAX;
         float sum = r.x * r.x + r.y * r.y;
-        vec3 color = hsv2rgb(vec3(c , 0.9, sum / 4));
+        vec3 color = hsv2rgb(vec3(c , 0.9, sum / 4.0));
         out_color = vec4(color, 1.0);
     }
 }
