@@ -312,6 +312,7 @@ impl Context {
         }
     }
 
+    #[allow(clippy::too_many_arguments)]
     fn paint(
         &mut self,
         gl: &glow::Context,

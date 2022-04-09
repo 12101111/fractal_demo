@@ -211,7 +211,7 @@ impl Context {
     }
 
     fn calc(&mut self, depth: u32) {
-        if self.indices.len() - 1 >= depth as usize {
+        if self.indices.len() > depth as usize {
             return;
         }
         for d in self.indices.len() - 1..depth as usize {
